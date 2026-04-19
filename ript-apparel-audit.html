@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RIPT Apparel | WordPress + WooCommerce Audit - Goals &amp; Beyond</title>
+<link rel="icon" type="image/png" href="https://goalsandbeyond.co/wp-content/uploads/2025/04/logo-with-left-align-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #0c1420;
+    --fg:           #ffffff;
+    --fg-70:        rgba(255,255,255,0.7);
+    --fg-50:        rgba(255,255,255,0.5);
+    --fg-30:        rgba(255,255,255,0.3);
+    --border:       rgba(255,255,255,0.1);
+    --border-strong:rgba(255,255,255,0.2);
+    --surface:      rgba(255,255,255,0.03);
+    --surface-hover:rgba(255,255,255,0.08);
+    --mono: "Geist Mono", ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Courier New", monospace;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body { min-height: 100vh; }
+
+  a { color: var(--fg); text-decoration: none; transition: color 160ms ease; }
+  a:hover { color: var(--fg-50); }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { flex-shrink: 0; margin-right: 48px; }
+  .nav-logo img { height: 24px; display: block; filter: brightness(0) invert(1); opacity: 0.9; }
+
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--fg-70);
+    cursor: pointer;
+  }
+  .nav-links a:hover { color: var(--fg); }
+  .nav-links a.active { color: var(--fg); }
+
+  .nav-meta { display: flex; gap: 12px; align-items: center; margin-left: auto; }
+  .nav-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--fg-50);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+  }
+
+  .hero { padding: 120px 48px 96px; max-width: 1400px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+    margin-bottom: 32px;
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+  .hero-eyebrow span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-eyebrow .dot { width: 6px; height: 6px; background: var(--fg-70); display: inline-block; }
+
+  h1.display {
+    font-family: var(--mono);
+    font-weight: 300;
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+  }
+
+  .hero-sub {
+    font-family: var(--sans);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--fg-70);
+    max-width: 820px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  section {
+    padding: 96px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--fg-50); }
+
+  h2 {
+    font-family: var(--sans);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    max-width: 900px;
+  }
+  h2 .mono { font-family: var(--mono); font-weight: 300; }
+
+  h3 {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg);
+    margin-bottom: 16px;
+  }
+
+  .lede {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--fg-70);
+    max-width: 820px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  p {
+    font-size: 15px;
+    color: var(--fg-70);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    max-width: 760px;
+  }
+  p:last-child { margin-bottom: 0; }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .split {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  .split:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+  .split-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px;
+    transition: border-color 160ms ease, background 160ms ease;
+  }
+  .card:hover { border-color: var(--border-strong); background: var(--surface-hover); }
+  .card h4 {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+    margin-bottom: 16px;
+  }
+  .card .metric {
+    font-family: var(--mono);
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .card .metric-label { font-size: 14px; color: var(--fg-70); }
+  .card p { color: var(--fg-70); font-size: 15px; line-height: 1.6; max-width: none; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border: 1px solid var(--border-strong);
+    color: var(--fg);
+  }
+  .tag.critical { border-color: rgba(255, 100, 100, 0.6); color: #ff9b9b; }
+  .tag.high { border-color: rgba(255, 180, 100, 0.6); color: #ffc88a; }
+  .tag.medium { border-color: rgba(255, 230, 120, 0.5); color: #ffe58a; }
+  .tag.easy { border-color: rgba(120, 220, 150, 0.5); color: #9be3ae; }
+
+  ul.clean { list-style: none; padding: 0; }
+  ul.clean li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg-70);
+    font-size: 15px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  ul.clean li::before {
+    content: "";
+    display: inline-block;
+    width: 8px; height: 1px;
+    background: var(--fg-50);
+    margin-top: 12px;
+    flex-shrink: 0;
+  }
+  ul.clean li:last-child { border-bottom: none; }
+  ul.clean li strong { color: var(--fg); font-weight: 500; }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 24px; }
+  .data-table th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 11px; font-weight: 400;
+    text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--fg-50);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .data-table td {
+    padding: 14px 16px; color: var(--fg-70);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top; line-height: 1.6;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:hover td { background: var(--surface-hover); color: var(--fg); }
+
+  .callout {
+    border-left: 1px solid var(--border-strong);
+    padding: 24px 32px;
+    margin: 32px 0;
+    background: var(--surface);
+  }
+  .callout .tag { margin-bottom: 12px; }
+  .callout p { color: var(--fg-70); font-size: 15px; line-height: 1.6; max-width: none; }
+
+  .sequence {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-top: 32px;
+  }
+  .sequence .step {
+    padding: 32px;
+    border-right: 1px solid var(--border);
+    min-height: 220px;
+    display: flex; flex-direction: column;
+    transition: background 160ms ease;
+  }
+  .sequence .step:last-child { border-right: none; }
+  .sequence .step:hover { background: var(--surface-hover); }
+  .sequence .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase; letter-spacing: 1.4px;
+    color: var(--fg-50); margin-bottom: 16px;
+  }
+  .sequence .step-title {
+    font-family: var(--sans);
+    font-size: 18px; font-weight: 400;
+    margin-bottom: 12px; color: var(--fg);
+  }
+  .sequence .step-desc { color: var(--fg-70); font-size: 14px; line-height: 1.6; }
+
+  footer {
+    padding: 64px 48px 48px;
+    border-top: 1px solid var(--border);
+    max-width: 1400px;
+    margin: 96px auto 0;
+    display: flex; flex-direction: column; gap: 48px;
+  }
+  .footer-bottom {
+    display: flex; justify-content: space-between;
+    padding-top: 32px; border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+    flex-wrap: wrap; gap: 16px;
+    align-items: center;
+  }
+  .footer-bottom img { height: 18px; filter: brightness(0) invert(1); opacity: 0.3; }
+
+  @media (max-width: 960px) {
+    nav, .hero, section, footer { padding-left: 24px; padding-right: 24px; }
+    .split { grid-template-columns: 1fr; gap: 24px; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .sequence { grid-template-columns: 1fr; }
+    .sequence .step { border-right: none; border-bottom: 1px solid var(--border); }
+    .sequence .step:last-child { border-bottom: none; }
+    .nav-links { display: none; }
+    .nav-meta { display: none; }
+    .data-table { font-size: 13px; }
+    .data-table th, .data-table td { padding: 10px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://goalsandbeyond.co/wp-content/uploads/2025/04/logo-with-left-align-1.png" alt="Goals & Beyond" />
+  </div>
+  <div class="nav-links">
+    <a href="#overview" class="active">01 Overview</a>
+    <a href="#findings">02 Findings</a>
+    <a href="#quickwins">03 Quick Wins</a>
+    <a href="#roadmap">04 Roadmap</a>
+    <a href="#next">05 Next Step</a>
+  </div>
+  <div class="nav-meta">
+    <span class="nav-tag">April 2026</span>
+    <span class="nav-tag">RIPT Apparel</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">
+    <span>Goals &amp; Beyond</span>
+    <span><span class="dot"></span> Prepared by Haseeb</span>
+    <span><span class="dot"></span> 19 April 2026</span>
+    <span><span class="dot"></span> RIPT Apparel</span>
+  </div>
+
+  <h1 class="display">WordPress<br>Audit</h1>
+
+  <p class="hero-sub">
+    A read-only review of riptapparel.com built from the live WooCommerce system report. The site is running on modern infrastructure, but the database and media library have grown past healthy limits, and several active plugins are duplicating work. This document lists what we found, what to fix first, and what we need from you to move forward safely.
+  </p>
+</div>
+
+<section id="overview">
+  <div class="section-eyebrow">Overview</div>
+  <h2>The numbers behind the slowdown</h2>
+  <p class="lede">Five data points from the live system report explain most of the speed and storage complaints. None of them require guessing. They are pulled directly from your WordPress install.</p>
+
+  <div class="grid-4" style="margin-bottom: 48px;">
+    <div class="card">
+      <h4>Database size</h4>
+      <div class="metric">7.2 GB</div>
+      <div class="metric-label">Healthy WooCommerce stores this size sit closer to 1 to 2 GB.</div>
+    </div>
+    <div class="card">
+      <h4>Media attachments</h4>
+      <div class="metric">548,954</div>
+      <div class="metric-label">Around 100 image files per product. Media library is the biggest storage cost.</div>
+    </div>
+    <div class="card">
+      <h4>Product variations</h4>
+      <div class="metric">602,281</div>
+      <div class="metric-label">Expected for apparel (size x color x style), but adds DB load.</div>
+    </div>
+    <div class="card">
+      <h4>Active plugins</h4>
+      <div class="metric">35</div>
+      <div class="metric-label">Several overlap in function. A tighter stack will be faster and easier to maintain.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Headline</span>
+    <p>The site is slow and the host is running out of space for two main reasons. First, the media library has grown to more than half a million files. Second, a handful of plugins (most notably the security plugin and the user database) have stored hundreds of megabytes of data they never clean up. Both are fixable without redesigning anything.</p>
+  </div>
+
+  <div class="split">
+    <div class="split-label">What is working</div>
+    <ul class="clean">
+      <li>Server stack is modern: PHP 8.3, MariaDB 11.8, LiteSpeed web server, LiteSpeed Cache plugin installed</li>
+      <li>WooCommerce 10.7 with <strong>High Performance Order Storage</strong> already enabled, which is the right modern configuration</li>
+      <li>Payment stack is solid: WooPayments, Stripe, PayPal, Amazon Pay, Apple Pay and Google Pay all active</li>
+      <li>Hosting is on Hostinger with 15 GB memory and 15 GB upload limits available</li>
+    </ul>
+  </div>
+
+  <div class="split">
+    <div class="split-label">What needs attention</div>
+    <ul class="clean">
+      <li><strong>Media library bloat</strong> driving the storage overload your manager has been fighting</li>
+      <li><strong>Database bloat</strong> inside specific plugin tables (Wordfence, WooCommerce user meta, Action Scheduler history, FluentSMTP email logs)</li>
+      <li><strong>Duplicated plugins</strong> doing the same job (two email platforms, three Elementor widget add-ons)</li>
+      <li><strong>Elementor Pro licence is inactive</strong>, which means no security updates and silent break risk</li>
+      <li><strong>No child theme</strong>, so any theme update will overwrite custom code including order email templates</li>
+      <li><strong>Cart page has a conflict</strong> between a shortcode and a block, flagged by WooCommerce itself</li>
+    </ul>
+  </div>
+</section>
+
+<section id="findings">
+  <div class="section-eyebrow">Detailed findings</div>
+  <h2>Top issues ranked by impact</h2>
+  <p class="lede">Every row below was pulled directly from the WooCommerce System Status report. Severity reflects how much the issue affects speed, storage, stability or security. Effort reflects how long the fix takes once we have access.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Issue</th>
+        <th style="width: 42%;">What it means</th>
+        <th style="width: 10%;">Severity</th>
+        <th style="width: 10%;">Effort</th>
+        <th style="width: 12%;">Needs staging</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>548,954 media attachments</strong></td>
+        <td>The uploads folder is the largest driver of the storage overload. Many are likely old design mockups, duplicates from imports, or variations that no longer match live products.</td>
+        <td><span class="tag critical">Critical</span></td>
+        <td><span class="tag">Medium</span></td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><strong>wp_usermeta table: 909 MB</strong></td>
+        <td>With around 5,000 customers this table should be under 50 MB. Something is storing large blobs per user. Likely Wordfence login history, Ultimate Member fields, or past checkout addresses.</td>
+        <td><span class="tag critical">Critical</span></td>
+        <td><span class="tag">Medium</span></td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><strong>Wordfence file list: 510 MB</strong></td>
+        <td>The security scanner is caching a file inventory that grew and never purged. Safe to clear through Wordfence Tools.</td>
+        <td><span class="tag high">High</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>wp_options table: 172 MB</strong></td>
+        <td>This table holds site settings and loads on every single page view. It should be under 5 MB. Oversized values (transients, plugin cache, abandoned options) slow down every request.</td>
+        <td><span class="tag high">High</span></td>
+        <td><span class="tag">Medium</span></td>
+        <td>Partial</td>
+      </tr>
+      <tr>
+        <td><strong>Elementor Pro licence inactive</strong></td>
+        <td>Flagged in the Pages screen: "Your license key has been cancelled." Premium features still run but receive no updates. This is a ticking compatibility and security issue.</td>
+        <td><span class="tag high">High</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>Klaviyo and Omnisend both active</strong></td>
+        <td>Two full email platforms running side by side. Each one loads its own tracking scripts on every page, each maintains its own contact database, and the store is paying for both.</td>
+        <td><span class="tag high">High</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>No child theme on Hello Elementor</strong></td>
+        <td>Custom template files have been edited directly in the parent theme. The next Hello Elementor update (already offered: 3.4.4 to 3.4.7) will erase those customisations, including a modified customer order email.</td>
+        <td><span class="tag high">High</span></td>
+        <td><span class="tag">Medium</span></td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><strong>7,428 placeholder orders</strong></td>
+        <td>Abandoned or failed checkouts that were never cleaned up. Pure database bloat with no business value.</td>
+        <td><span class="tag medium">Medium</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>149,389 completed scheduled actions</strong></td>
+        <td>The WooCommerce job queue keeps its completed log forever by default. Trimming to 30 days is standard.</td>
+        <td><span class="tag medium">Medium</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>FluentSMTP email logs: 112 MB</strong></td>
+        <td>Every outbound email is being logged and never deleted. Retention can be reduced to 7 days.</td>
+        <td><span class="tag medium">Medium</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>Elementor widget plugin overlap</strong></td>
+        <td>Essential Addons, ShopLentor and Icon Element all extend Elementor with widgets. One of these is enough. Each adds load time and admin complexity.</td>
+        <td><span class="tag high">High</span></td>
+        <td><span class="tag">Medium</span></td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><strong>4 inactive plugins still installed</strong></td>
+        <td>Customer Reviews for WooCommerce, Rich Showcase, RIPT Variant 410 Handler, Templately. Inactive plugins still leave options and database rows behind. Delete rather than deactivate.</td>
+        <td><span class="tag medium">Medium</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>Google for WooCommerce installed but inactive at every feature</strong></td>
+        <td>Plugin is enabled but every sync is off. Currently adds weight without doing anything. Either activate the feed or remove it.</td>
+        <td><span class="tag medium">Medium</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>WP debug mode on in production</strong></td>
+        <td>WP_DEBUG is true on a live store. Every request writes to debug.log. Safe to turn off now.</td>
+        <td><span class="tag medium">Medium</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>Cart page has shortcode + block conflict</strong></td>
+        <td>WooCommerce itself flags this in the system report. The cart page contains both the legacy [woocommerce_cart] shortcode and the new block. Cart behavior can be inconsistent.</td>
+        <td><span class="tag medium">Medium</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td><strong>Order email template out of date</strong></td>
+        <td>The customer-completed-order email template is at version 9.9.0 while WooCommerce core is at 10.4.0. New order confirmation emails may render incorrectly or be missing new fields.</td>
+        <td><span class="tag medium">Medium</span></td>
+        <td><span class="tag easy">Easy</span></td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="quickwins">
+  <div class="section-eyebrow">Zero-risk fixes</div>
+  <h2>Quick wins we can action this week</h2>
+  <p class="lede">These changes do not touch customer data, the checkout flow, or any visual element. They can be done directly in WordPress admin and reversed in one click if needed. Combined impact: faster dashboard, faster time to first byte, and a meaningful drop in hosting disk usage.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>01 Delete inactive plugins</h4>
+      <p><strong>What:</strong> Remove the 4 inactive plugins (Customer Reviews for WooCommerce, Rich Showcase, RIPT Variant 410 Handler, Templately).</p>
+      <p><strong>Impact:</strong> Cleaner admin, fewer cron jobs, removes abandoned DB rows.</p>
+      <p><strong>Time:</strong> 5 minutes.</p>
+    </div>
+    <div class="card">
+      <h4>02 Clear Wordfence file cache</h4>
+      <p><strong>What:</strong> Wordfence &gt; Tools &gt; clear stored file list (wp_wfknownfilelist = 510 MB).</p>
+      <p><strong>Impact:</strong> Reclaims half a gigabyte of database storage with zero functional change.</p>
+      <p><strong>Time:</strong> 2 minutes.</p>
+    </div>
+    <div class="card">
+      <h4>03 Consolidate email platform</h4>
+      <p><strong>What:</strong> Decide between Klaviyo and Omnisend. Deactivate the loser and export its list to the keeper.</p>
+      <p><strong>Impact:</strong> Half the tracking JS per page, one subscription fee instead of two, no more duplicate contacts.</p>
+      <p><strong>Time:</strong> 30 minutes once the choice is made.</p>
+    </div>
+    <div class="card">
+      <h4>04 Reduce FluentSMTP log retention</h4>
+      <p><strong>What:</strong> FluentSMTP &gt; Settings &gt; change log retention from unlimited to 7 days.</p>
+      <p><strong>Impact:</strong> Frees 100 MB+ and keeps the table small going forward.</p>
+      <p><strong>Time:</strong> 2 minutes.</p>
+    </div>
+    <div class="card">
+      <h4>05 Empty trash and clean placeholders</h4>
+      <p><strong>What:</strong> Empty the 18 trashed products and set WooCommerce to auto-delete failed/placeholder orders after 30 days.</p>
+      <p><strong>Impact:</strong> Smaller DB, cleaner admin.</p>
+      <p><strong>Time:</strong> 10 minutes.</p>
+    </div>
+    <div class="card">
+      <h4>06 Renew or remove Elementor Pro</h4>
+      <p><strong>What:</strong> Reactivate the Elementor Pro licence or, if not renewing, plan to replace Pro widgets with free alternatives.</p>
+      <p><strong>Impact:</strong> Restores security updates and support, removes the licence warning in admin.</p>
+      <p><strong>Time:</strong> 5 minutes to renew. Longer if replacing.</p>
+    </div>
+    <div class="card">
+      <h4>07 Turn off WP debug mode</h4>
+      <p><strong>What:</strong> Flip WP_DEBUG to false in wp-config.php.</p>
+      <p><strong>Impact:</strong> Stops writing debug.log on every request. Small speed win, cleaner disk.</p>
+      <p><strong>Time:</strong> 2 minutes.</p>
+    </div>
+    <div class="card">
+      <h4>08 Trim scheduled action history</h4>
+      <p><strong>What:</strong> WooCommerce &gt; Status &gt; Scheduled Actions &gt; clear the 149,389 completed entries older than 30 days.</p>
+      <p><strong>Impact:</strong> Smaller Action Scheduler tables, faster admin.</p>
+      <p><strong>Time:</strong> 5 minutes.</p>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 48px;">
+    <span class="tag">Expected result</span>
+    <p>Doing all eight of the above should reduce the database by roughly 800 MB to 1 GB, remove duplicate tracking scripts from every page, and bring admin speed back to normal. None of these changes affect product pages, the checkout, customer accounts, or existing orders.</p>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="section-eyebrow">Roadmap</div>
+  <h2>How we fix the rest, without breaking the store</h2>
+  <p class="lede">The bigger items (media library cleanup, user meta bloat, child theme, plugin consolidation) all require a staging environment. Staging is a private copy of the live site where we can test every change before it reaches customers. Hostinger supports this natively on their Business plan and above.</p>
+
+  <div class="sequence">
+    <div class="step">
+      <div class="step-num">Phase 1</div>
+      <div class="step-title">Quick wins</div>
+      <div class="step-desc">The 8 zero-risk fixes above. Done on the live site with no staging required. Target completion: this week.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Phase 2</div>
+      <div class="step-title">Stand up staging</div>
+      <div class="step-desc">Create the Hostinger staging clone. From here, every major change gets tested on staging first, validated, then pushed to live. Target: within 3 days of Phase 1 completing.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Phase 3</div>
+      <div class="step-title">Deep clean</div>
+      <div class="step-desc">Media library audit and offload to a CDN, usermeta investigation and cleanup, plugin consolidation, child theme creation, template override migration. Target: 2 to 3 weeks on staging.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Phase 4</div>
+      <div class="step-title">Performance lift</div>
+      <div class="step-desc">LiteSpeed Cache tuned properly, image optimisation and WebP, lazy loading on product archives, autoload audit on wp_options. Measured on the same 4 pages before and after.</div>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="section-eyebrow">Next step</div>
+  <h2>What we need from RIPT to start</h2>
+  <p class="lede">We can begin Phase 1 the moment two things are in place. Nothing on the site changes until these are confirmed.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>01 Written approval</h4>
+      <p>A short email reply confirming RIPT Apparel authorises Goals &amp; Beyond to execute the 8 zero-risk fixes listed in the Quick Wins section. No other changes will be made without a separate approval.</p>
+    </div>
+    <div class="card">
+      <h4>02 Hostinger panel access</h4>
+      <p>Login to the Hostinger control panel (not the WordPress admin, the hosting account itself). This is needed to take a full backup before any change, and to create the staging environment for Phase 2.</p>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 48px;">
+    <span class="tag">Decision point</span>
+    <p>Approve the Quick Wins list and share Hostinger panel access. Within one working day of receiving both, we take a full backup and begin Phase 1. A status note will be sent to RIPT after each quick win is complete.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <img src="https://goalsandbeyond.co/wp-content/uploads/2025/04/logo-with-left-align-1.png" alt="Goals & Beyond" />
+    <span>Confidential &middot; Prepared for RIPT Apparel &middot; Goals &amp; Beyond &copy; 2026</span>
+  </div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
