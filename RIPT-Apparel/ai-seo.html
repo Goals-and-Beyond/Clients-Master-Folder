@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ript Apparel | AI SEO Content Strategy - Goals & Beyond</title>
+<link rel="icon" type="image/png" href="https://goalsandbeyond.co/wp-content/uploads/2025/04/logo-with-left-align-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --bg:           #0c1420;
+    --fg:           #ffffff;
+    --fg-70:        rgba(255,255,255,0.7);
+    --fg-50:        rgba(255,255,255,0.5);
+    --fg-30:        rgba(255,255,255,0.3);
+    --border:       rgba(255,255,255,0.1);
+    --border-strong:rgba(255,255,255,0.2);
+    --surface:      rgba(255,255,255,0.03);
+    --surface-hover:rgba(255,255,255,0.08);
+    --mono: "Geist Mono", ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Courier New", monospace;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body { min-height: 100vh; }
+
+  a { color: var(--fg); text-decoration: none; transition: color 160ms ease; }
+  a:hover { color: var(--fg-50); }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .nav-logo { flex-shrink: 0; margin-right: 48px; }
+  .nav-logo img { height: 24px; display: block; filter: brightness(0) invert(1); opacity: 0.9; }
+
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--fg-70);
+    cursor: pointer;
+  }
+  .nav-links a:hover { color: var(--fg); }
+  .nav-links a.active { color: var(--fg); }
+
+  .nav-meta { display: flex; gap: 12px; align-items: center; margin-left: auto; }
+  .nav-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--fg-50);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+  }
+
+  .hero {
+    padding: 120px 48px 96px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+    margin-bottom: 32px;
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+  .hero-eyebrow span { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-eyebrow .dot { width: 6px; height: 6px; background: var(--fg-70); display: inline-block; }
+
+  h1.display {
+    font-family: var(--mono);
+    font-weight: 300;
+    font-size: clamp(48px, 9vw, 140px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+  }
+
+  .hero-sub {
+    font-family: var(--sans);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--fg-70);
+    max-width: 820px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  section {
+    padding: 96px 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--fg-50); }
+
+  h2 {
+    font-family: var(--sans);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    max-width: 900px;
+  }
+  h2 .mono { font-family: var(--mono); font-weight: 300; }
+
+  h3 {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg);
+    margin-bottom: 16px;
+  }
+
+  .lede {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--fg-70);
+    max-width: 820px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  p {
+    font-size: 15px;
+    color: var(--fg-70);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    max-width: 760px;
+  }
+  p:last-child { margin-bottom: 0; }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  .split {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  .split:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+  .split-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px;
+    transition: border-color 160ms ease, background 160ms ease;
+  }
+  .card:hover { border-color: var(--border-strong); background: var(--surface-hover); }
+  .card h4 {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+    margin-bottom: 16px;
+  }
+  .card .metric {
+    font-family: var(--mono);
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .card .metric-label { font-size: 14px; color: var(--fg-70); }
+  .card p { color: var(--fg-70); font-size: 15px; line-height: 1.6; max-width: none; }
+
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border: 1px solid var(--border-strong);
+    color: var(--fg);
+  }
+  .tag.green { border-color: rgba(80,200,120,0.4); color: rgba(80,200,120,0.9); }
+  .tag.amber { border-color: rgba(240,180,60,0.4); color: rgba(240,180,60,0.9); }
+  .tag.red   { border-color: rgba(240,80,80,0.4);  color: rgba(240,80,80,0.9); }
+
+  ul.clean { list-style: none; padding: 0; }
+  ul.clean li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg-70);
+    font-size: 15px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  ul.clean li::before {
+    content: "";
+    display: inline-block;
+    width: 8px; height: 1px;
+    background: var(--fg-50);
+    margin-top: 12px;
+    flex-shrink: 0;
+  }
+  ul.clean li:last-child { border-bottom: none; }
+  ul.clean li strong { color: var(--fg); font-weight: 500; }
+
+  .data-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 14px; margin-top: 24px;
+  }
+  .data-table th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 11px; font-weight: 400;
+    text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--fg-50);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .data-table td {
+    padding: 14px 16px; color: var(--fg-70);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top; line-height: 1.6;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:hover td { background: var(--surface-hover); color: var(--fg); }
+
+  .callout {
+    border-left: 1px solid var(--border-strong);
+    padding: 24px 32px;
+    margin: 32px 0;
+    background: var(--surface);
+  }
+  .callout .tag { margin-bottom: 12px; }
+  .callout p { color: var(--fg-70); font-size: 15px; line-height: 1.6; max-width: none; }
+
+  .sequence {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-top: 32px;
+  }
+  .sequence .step {
+    padding: 32px;
+    border-right: 1px solid var(--border);
+    min-height: 200px;
+    display: flex; flex-direction: column;
+    transition: background 160ms ease;
+  }
+  .sequence .step:last-child { border-right: none; }
+  .sequence .step:hover { background: var(--surface-hover); }
+  .sequence .step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase; letter-spacing: 1.4px;
+    color: var(--fg-50); margin-bottom: 16px;
+  }
+  .sequence .step-title {
+    font-family: var(--sans);
+    font-size: 20px; font-weight: 400;
+    margin-bottom: 12px; color: var(--fg);
+  }
+  .sequence .step-desc { color: var(--fg-70); font-size: 14px; line-height: 1.6; }
+
+  .code-block {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--fg-70);
+    line-height: 1.7;
+    margin: 16px 0;
+  }
+  .code-block .label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+    margin-bottom: 8px;
+  }
+  .code-block .highlight { color: var(--fg); }
+
+  footer {
+    padding: 64px 48px 48px;
+    border-top: 1px solid var(--border);
+    max-width: 1400px;
+    margin: 96px auto 0;
+    display: flex; flex-direction: column; gap: 48px;
+  }
+  .footer-bottom {
+    display: flex; justify-content: space-between;
+    padding-top: 32px; border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--fg-50);
+    flex-wrap: wrap; gap: 16px;
+    align-items: center;
+  }
+  .footer-bottom img { height: 18px; filter: brightness(0) invert(1); opacity: 0.3; }
+
+  @media (max-width: 960px) {
+    nav, .hero, section, footer { padding-left: 24px; padding-right: 24px; }
+    .split { grid-template-columns: 1fr; gap: 24px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .sequence { grid-template-columns: 1fr; }
+    .sequence .step { border-right: none; border-bottom: 1px solid var(--border); }
+    .sequence .step:last-child { border-bottom: none; }
+    .nav-links { display: none; }
+    .nav-meta { display: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://goalsandbeyond.co/wp-content/uploads/2025/04/logo-with-left-align-1.png" alt="Goals & Beyond" />
+  </div>
+  <div class="nav-links">
+    <a href="#overview" class="active">01 Overview</a>
+    <a href="#content-gaps">02 Content Gaps</a>
+    <a href="#ai-content">03 AI Content</a>
+    <a href="#pseo">04 Programmatic SEO</a>
+    <a href="#roadmap">05 Roadmap</a>
+    <a href="#lead-magnets">06 Lead Magnets</a>
+  </div>
+  <div class="nav-meta">
+    <span class="nav-tag">April 2026</span>
+    <span class="nav-tag">Ript Apparel</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">
+    <span>Goals &amp; Beyond</span>
+    <span><span class="dot"></span> Prepared by Haseeb</span>
+    <span><span class="dot"></span> April 19, 2026</span>
+    <span><span class="dot"></span> Ript Apparel</span>
+  </div>
+  <h1 class="display">AI SEO<br>Content<br>Strategy</h1>
+  <p class="hero-sub">
+    A full analysis of Ript Apparel's current website and a practical AI SEO content strategy -- covering content gaps, AI-generated descriptions, programmatic SEO opportunities, and a prioritised implementation roadmap.
+  </p>
+</div>
+
+<!-- SECTION 1: OVERVIEW -->
+<section id="overview">
+  <div class="section-eyebrow">Overview</div>
+  <h2>Where Ript stands and what AI SEO can do for them</h2>
+  <p class="lede">Ript Apparel has a strong foundation: a niche taxonomy, daily drop urgency, and product descriptions that already read like editorial copy. The gap is volume. With 3 new designs every day and 15+ years of archived work, there is more indexable content here than any human team could scale manually. AI fills that gap.</p>
+
+  <div class="grid-3" style="margin-bottom: 48px;">
+    <div class="card">
+      <h4>Design Cadence</h4>
+      <div class="metric">3/day</div>
+      <div class="metric-label">New designs released daily -- each needing unique SEO content</div>
+    </div>
+    <div class="card">
+      <h4>Site Age</h4>
+      <div class="metric">15+ yrs</div>
+      <div class="metric-label">Founded 2009 -- massive archive of sold-out designs in the Graveyard</div>
+    </div>
+    <div class="card">
+      <h4>Taxonomy Depth</h4>
+      <div class="metric">8 themes</div>
+      <div class="metric-label">Anime, Music, Cartoons, Comics, TV, Video Games, Wrestling + Era filters</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">Key Finding</span>
+    <p>Ript already writes better product descriptions than 95% of ecommerce brands. The problem is not quality -- it is that this level of writing cannot be sustained manually at 3 drops per day. AI SEO is not about replacing their voice. It is about replicating it at scale and building the surrounding content infrastructure that earns organic traffic between drops.</p>
+  </div>
+
+  <div class="split">
+    <div class="split-label">What's working</div>
+    <ul class="clean">
+      <li><strong>Analytical product descriptions</strong> -- "About a Beagle" and "All Day Long" both use cultural context, aesthetic analysis, and physical specs. This format naturally ranks for long-tail style searches.</li>
+      <li><strong>Multi-axis taxonomy</strong> -- Shop by Era, by Theme, and by Product creates dozens of natural landing page entry points that Google can index separately.</li>
+      <li><strong>RIPT Revival narrative</strong> -- The comeback story from the May 2025 platform outage is brand-authority content. It builds trust signals that help all pages rank.</li>
+      <li><strong>Competitor comparison table</strong> -- Built directly into product pages. Targets "RIPT vs TeePublic" and similar branded comparison queries.</li>
+      <li><strong>Daily urgency</strong> -- Countdown timers and "once it's gone, it's gone" messaging creates repeat-visit behaviour, which improves dwell time signals.</li>
+    </ul>
+  </div>
+
+  <div class="split">
+    <div class="split-label">Where AI SEO adds value</div>
+    <ul class="clean">
+      <li><strong>No sub-fandom landing pages</strong> -- "Anime" exists but "90s Mecha Anime Tees" does not. AI can generate hundreds of these sub-category pages from existing product tags.</li>
+      <li><strong>Graveyard pages are dead weight</strong> -- Archived designs exist but have no SEO content keeping them alive. AI can turn these into "Hall of Fame" pages with internal links to live products.</li>
+      <li><strong>Meta titles and descriptions are likely generic</strong> -- At 3 drops per day, meta fields are almost certainly not being written individually. AI can generate them from the product description on publish.</li>
+      <li><strong>No blog content</strong> -- The blog link exists in the footer but is not active. This is a significant missed channel for fandom-driven organic traffic.</li>
+      <li><strong>No gift guide pages</strong> -- "Gifts for 90s Kids" or "Best Anime Gifts Under $30" are high-purchase-intent pages Ript is not capturing.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 2: CONTENT GAPS -->
+<section id="content-gaps">
+  <div class="section-eyebrow">Content Gaps</div>
+  <h2>Where AI can build new pages that rank</h2>
+  <p class="lede">These are the three highest-value content gap categories. Each one represents a set of pages that Ript has the underlying data to create, but has not yet built.</p>
+
+  <div class="grid-3" style="margin-bottom: 48px;">
+    <div class="card">
+      <h4>Sub-Fandom Pages</h4>
+      <p>Ript's "Shop by Theme" nav has 8 broad categories. Each one contains dozens of sub-niches that people search for specifically. AI can generate a landing page for every sub-fandom that has 3+ products in it.</p>
+      <br>
+      <p style="color: var(--fg-50); font-size: 13px; font-family: var(--mono);">EXAMPLES: 90s Mecha Anime Tees / 80s Saturday Morning Cartoon Hoodies / Retro Wrestling Mashup Tees</p>
+    </div>
+    <div class="card">
+      <h4>Era Sub-Pages</h4>
+      <p>The current taxonomy only splits "1980s" and "1990s" -- two pages. AI can expand this into sub-eras and aesthetic movements, each of which has its own search audience looking for that specific vibe.</p>
+      <br>
+      <p style="color: var(--fg-50); font-size: 13px; font-family: var(--mono);">EXAMPLES: Early 90s Grunge Art / Late 80s Neon Aesthetic / Mid-90s Cartoon Network Era</p>
+    </div>
+    <div class="card">
+      <h4>Graveyard Re-engagement</h4>
+      <p>Sold-out designs in the Graveyard still get searched. AI can build "Hall of Fame" pages around these designs that explain their cultural significance and route users to similar available products.</p>
+      <br>
+      <p style="color: var(--fg-50); font-size: 13px; font-family: var(--mono);">EXAMPLES: "Wookie Monster" archive page / "DocTales" vault page with "You might also like" links</p>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Page Type</th>
+        <th>Search Intent</th>
+        <th>Estimated Pages</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sub-fandom landing pages (Theme + sub-genre)</td>
+        <td>Transactional -- "buy [niche] graphic tee"</td>
+        <td>50 to 100+</td>
+        <td><span class="tag green">High</span></td>
+      </tr>
+      <tr>
+        <td>Era sub-category pages (decade + aesthetic)</td>
+        <td>Informational + transactional -- "90s grunge style shirts"</td>
+        <td>15 to 30</td>
+        <td><span class="tag green">High</span></td>
+      </tr>
+      <tr>
+        <td>Gift guide pages ("Gifts for [fandom] fans")</td>
+        <td>Transactional with high purchase intent</td>
+        <td>20 to 40</td>
+        <td><span class="tag green">High</span></td>
+      </tr>
+      <tr>
+        <td>Graveyard Hall of Fame pages</td>
+        <td>Navigational -- people searching sold-out designs by name</td>
+        <td>Hundreds (archive)</td>
+        <td><span class="tag amber">Medium</span></td>
+      </tr>
+      <tr>
+        <td>Artist gallery pages (per artist)</td>
+        <td>Navigational -- fans of a specific RIPT artist</td>
+        <td>30 to 50</td>
+        <td><span class="tag amber">Medium</span></td>
+      </tr>
+      <tr>
+        <td>Blog -- "History of the mashup" editorial series</td>
+        <td>Informational -- builds brand authority and topical relevance</td>
+        <td>Ongoing</td>
+        <td><span class="tag amber">Medium</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 3: AI CONTENT STRATEGY -->
+<section id="ai-content">
+  <div class="section-eyebrow">AI Content Strategy</div>
+  <h2>The formula for product descriptions, metas, and blog content</h2>
+  <p class="lede">Ript's existing product descriptions are a blueprint. The AI's job is to write in that same format at scale -- not to replace the voice, but to replicate the structure that already performs well.</p>
+
+  <div class="callout">
+    <span class="tag">The Current Formula (Already Working)</span>
+    <p>Ript's best product descriptions follow a 4-part pattern: <strong>(1) Hook</strong> that names the mashup, <strong>(2) Cultural Context</strong> that explains the why, <strong>(3) Visual Analysis</strong> that describes the aesthetic in specific language, <strong>(4) Physical Specs</strong> in a bullet list. Every AI-generated description should follow this exact structure.</p>
+  </div>
+
+  <div class="split">
+    <div class="split-label">Product Description Formula</div>
+    <div>
+      <div class="code-block">
+        <div class="label">Hook</div>
+        <span class="highlight">"This design merges [cultural reference 1] with [cultural reference 2]."</span>
+      </div>
+      <div class="code-block">
+        <div class="label">Cultural Context</div>
+        <span class="highlight">"Someone who [lived through / absorbed] [era] will recognise [specific detail]. It works as a comment on how [observation about the mashup's meaning]."</span>
+      </div>
+      <div class="code-block">
+        <div class="label">Visual Analysis</div>
+        <span class="highlight">"The palette leans [descriptor]. The composition [detail about art style]. It feels like [specific cultural analogy]."</span>
+      </div>
+      <div class="code-block">
+        <div class="label">Physical Specs (bullet list)</div>
+        <span class="highlight">Soft cotton blend / Relaxed unisex fit / Screen print holds colour through washes / Available S to 6XL</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="split">
+    <div class="split-label">Meta Title Formula</div>
+    <div>
+      <div class="code-block">
+        <div class="label">Template</div>
+        <span class="highlight">[Design Name] [Product Type] -- [Theme] Mashup Tee | RIPT Apparel</span>
+      </div>
+      <div class="code-block">
+        <div class="label">Example</div>
+        <span class="highlight">About a Beagle Mens Premium Tee -- 90s Grunge Parody | RIPT Apparel</span>
+      </div>
+      <p style="margin-top: 16px;">The middle section ([Theme] Mashup Tee) is where AI adds the most value -- it injects a searchable style keyword that the plain design name would miss. AI should pull this from the product's assigned theme tag.</p>
+    </div>
+  </div>
+
+  <div class="split">
+    <div class="split-label">Meta Description Formula</div>
+    <div>
+      <div class="code-block">
+        <div class="label">Template</div>
+        <span class="highlight">[First sentence of product description]. [Physical hook: size range / print quality]. Limited edition -- ships from Detroit.</span>
+      </div>
+      <div class="code-block">
+        <div class="label">Example</div>
+        <span class="highlight">This design merges grunge era iconography with a famously mellow cartoon beagle. Soft cotton, S to 6XL, durable screen print. Limited edition -- ships from Detroit.</span>
+      </div>
+      <p style="margin-top: 16px;">Meta descriptions should be auto-generated on product publish. AI pulls the opening sentence from the product description, appends the physical spec hook, and closes with the "Detroit Made" trust signal that is already on every page.</p>
+    </div>
+  </div>
+
+  <div class="split">
+    <div class="split-label">Blog Content Topics</div>
+    <ul class="clean">
+      <li><strong>The History of the Pop Culture Mashup Tee</strong> -- editorial piece that establishes Ript as the authority. Links to collections throughout.</li>
+      <li><strong>How Counterculture Becomes Comfort Culture</strong> -- thematic piece inspired by their own product copy. High share potential in fandom communities.</li>
+      <li><strong>Artist Spotlights</strong> -- one per artist, featuring their top designs and creative process. Builds both SEO and community loyalty.</li>
+      <li><strong>The RIPT Revival: What Happened in May 2025</strong> -- the comeback story. Brand-authority content that builds trust and generates backlinks from pop culture media.</li>
+      <li><strong>How to Style a Graphic Tee for Convention Season</strong> -- seasonal, gift-adjacent, links to relevant theme collections.</li>
+      <li><strong>The Ultimate Guide to 90s Nostalgia Tees</strong> -- high-traffic informational piece targeting the core demographic.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 4: PROGRAMMATIC SEO -->
+<section id="pseo">
+  <div class="section-eyebrow">Programmatic SEO</div>
+  <h2>Using Ript's existing data to generate hundreds of ranking pages</h2>
+  <p class="lede">Programmatic SEO is the highest-leverage move for a store that releases 3 products per day across 8 theme categories. The data already exists -- AI turns it into thousands of unique, indexed landing pages without manual effort.</p>
+
+  <div class="grid-2" style="margin-bottom: 48px;">
+    <div class="card">
+      <h4>Collection Page Matrix</h4>
+      <p>Cross every Theme with every Product Type in the navigation. Each combination becomes a unique collection page with AI-written intro copy.</p>
+      <br>
+      <ul class="clean">
+        <li>8 themes x 6 product types = 48 base pages</li>
+        <li>Add sub-fandom variants: 200+ pages</li>
+        <li>Each page targets a unique keyword cluster</li>
+        <li>Internal links flow from sub-pages to main theme pages</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Gift Guide Pages</h4>
+      <p>High purchase-intent pages that aggregate products by recipient or occasion. AI generates the intro copy, the product selection rules pull from tags.</p>
+      <br>
+      <ul class="clean">
+        <li>"Gifts for Anime Fans Under $30"</li>
+        <li>"Best 90s Nostalgia Gifts for Him"</li>
+        <li>"Graphic Tee Gift Ideas for Gamers"</li>
+        <li>"Wrestling Fan Gift Guide"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="tag">pSEO Scaling Logic</span>
+    <p>The goal is not to write 200 pages manually. The goal is to write one good template per page type, connect it to the product database, and let AI fill in the variables. Ript's Shopify or WooCommerce product tags are the data layer. The AI template is the content layer. Combined, they create hundreds of unique pages that Google treats as distinct content -- because the intro copy, heading, and meta title are genuinely unique per page.</p>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>pSEO Page Type</th>
+        <th>Data Source</th>
+        <th>Target Query</th>
+        <th>Effort</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Theme + Product Type collections</td>
+        <td>Nav taxonomy (existing tags)</td>
+        <td>"anime hoodies for men" / "cartoon graphic tees women"</td>
+        <td><span class="tag green">Low -- template once</span></td>
+      </tr>
+      <tr>
+        <td>Sub-fandom collections</td>
+        <td>Product tag expansion</td>
+        <td>"90s mecha anime shirt" / "retro wrestling mashup tee"</td>
+        <td><span class="tag amber">Medium -- tag audit first</span></td>
+      </tr>
+      <tr>
+        <td>Gift guides by fandom</td>
+        <td>Theme + price range filters</td>
+        <td>"gifts for anime fans" / "90s kid gift ideas"</td>
+        <td><span class="tag amber">Medium -- new page template</span></td>
+      </tr>
+      <tr>
+        <td>Graveyard Hall of Fame pages</td>
+        <td>Archive / Graveyard product list</td>
+        <td>Specific sold-out design names</td>
+        <td><span class="tag amber">Medium -- archive API needed</span></td>
+      </tr>
+      <tr>
+        <td>Comparison pages (RIPT vs competitors)</td>
+        <td>Existing comparison table on product pages</td>
+        <td>"RIPT Apparel vs TeePublic" / "best daily drop t-shirt sites"</td>
+        <td><span class="tag green">Low -- expand existing table</span></td>
+      </tr>
+      <tr>
+        <td>Artist gallery pages</td>
+        <td>Product artist attribution field</td>
+        <td>"Retro Division RIPT designs" / "walmazan apparel"</td>
+        <td><span class="tag green">Low -- artist field already exists</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 5: ROADMAP -->
+<section id="roadmap">
+  <div class="section-eyebrow">Roadmap</div>
+  <h2>How to implement this in the right order</h2>
+  <p class="lede">Start with the highest-leverage, lowest-effort wins first. The sequence below is ordered by impact-to-effort ratio, not by size of the opportunity.</p>
+
+  <div class="sequence">
+    <div class="step">
+      <div class="step-num">Phase 01</div>
+      <div class="step-title">Automate Metas on Every New Drop</div>
+      <div class="step-desc">Set up an AI rule that auto-generates meta title and meta description on product publish using the formulas in Section 03. This is the fastest win -- affects every single drop going forward with no ongoing effort.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Phase 02</div>
+      <div class="step-title">Build Theme x Product Collection Pages</div>
+      <div class="step-desc">Create 48 collection pages (8 themes x 6 product types) using one AI template. Each page gets a unique 2-sentence intro generated from the theme and product type variables. Submit to Search Console.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Phase 03</div>
+      <div class="step-title">Expand to Sub-Fandom Pages</div>
+      <div class="step-desc">Audit existing product tags and identify the 20 to 30 highest-volume sub-niches. Build sub-fandom collection pages for each. These capture the long-tail traffic that the broad theme pages miss.</div>
+    </div>
+  </div>
+
+  <div class="sequence" style="margin-top: 0; border-top: none;">
+    <div class="step">
+      <div class="step-num">Phase 04</div>
+      <div class="step-title">Launch 5 Gift Guide Pages</div>
+      <div class="step-desc">Start with the 5 highest-intent gift guide topics: Anime Fans, 90s Kids, Gamers, Wrestling Fans, and a general "Geek Gift Guide." AI writes the intros; the product selection pulls from tags. These pages have strong purchase intent and convert well from Google.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Phase 05</div>
+      <div class="step-title">Activate the Blog</div>
+      <div class="step-desc">Publish the RIPT Revival story first -- it is already written in the brand voice and will attract backlinks from pop culture media. Then begin the "History of the Mashup" editorial series. One post per week, AI-drafted, human-edited to match the brand's analytical tone.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Phase 06</div>
+      <div class="step-title">Revive the Graveyard</div>
+      <div class="step-desc">Take the top 50 most-searched sold-out designs and build Hall of Fame pages. AI generates a 150-word cultural retrospective per design and links to the 3 most similar live products. Captures long-tail traffic from fans still searching for sold-out favourites.</div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 48px;">
+    <span class="tag">Internal Linking Principle</span>
+    <p>AI should also handle internal linking as new content is created. The rule is simple: every time a product description or blog post mentions a theme keyword (e.g. "90s kid", "anime", "retro-apocalyptic"), that phrase should automatically link to its corresponding collection page. AI can audit this retroactively on existing products and enforce it on all new content going forward. This keeps link equity flowing from product pages up to the collection layer, which is where most of the pSEO ranking authority sits.</p>
+  </div>
+</section>
+
+<!-- SECTION 6: LEAD MAGNETS -->
+<section id="lead-magnets">
+  <div class="section-eyebrow">Lead Magnets</div>
+  <h2>How to capture emails that actually convert -- and why Ript's current approach is leaving most of them on the table</h2>
+  <p class="lede">A lead magnet is any piece of value you offer in exchange for an email address. For ecommerce brands, it is the bridge between anonymous traffic and a named subscriber you can market to forever. Right now, Ript's only email capture is a footer form with no offer attached. That is a significant missed opportunity given how much intent-rich traffic their model generates.</p>
+
+  <div class="callout">
+    <span class="tag">Ript's Current State</span>
+    <p>The entire website has one email capture mechanism: a footer form that says "Sign up for exclusive offers, original stories, events and more." There is no popup, no quiz, no waitlist, no exit intent capture, and no offer attached to the signup. For a brand that generates daily repeat traffic from fans with high purchase intent, this means the vast majority of visitors who do not buy today are never re-engaged. The Graveyard alone receives visits from people who already want a specific product -- and there is no mechanism to capture that intent.</p>
+  </div>
+
+  <div class="grid-3" style="margin-bottom: 48px;">
+    <div class="card">
+      <h4>Quiz Conversion Rate</h4>
+      <div class="metric">40.1%</div>
+      <div class="metric-label">Of people who start a lead gen quiz become subscribers -- vs 6.88% for standard popups</div>
+    </div>
+    <div class="card">
+      <h4>Interactive vs Static</h4>
+      <div class="metric">+70%</div>
+      <div class="metric-label">Interactive lead magnets (quizzes, tools) convert 70% better than static PDFs or discount offers</div>
+    </div>
+    <div class="card">
+      <h4>Scroll-Depth Trigger</h4>
+      <div class="metric">35-50%</div>
+      <div class="metric-label">Scroll depth at which lead magnet triggers show the highest conversion rates (2.5x to 3.35x average)</div>
+    </div>
+  </div>
+
+  <div class="split">
+    <div class="split-label">What most ecommerce brands do</div>
+    <ul class="clean">
+      <li><strong>"10% off your first order"</strong> -- the default popup used by roughly 80% of ecommerce stores. It trains customers to expect a discount before buying, conditions them to wait for a deal, and attracts the lowest-LTV segment of your audience -- coupon hunters who never pay full price again.</li>
+      <li><strong>Generic newsletter signup</strong> -- "Subscribe for updates." No offer, no differentiation, no reason for a cold visitor to hand over their email. This is exactly what Ript's current footer form does.</li>
+      <li><strong>Single placement</strong> -- One form, usually in the footer. No trigger logic, no page-specific relevance, no attempt to match the offer to what the visitor was just looking at.</li>
+    </ul>
+  </div>
+
+  <div class="split">
+    <div class="split-label">What rare brands do</div>
+    <ul class="clean">
+      <li><strong>Farmer's Dog</strong> -- Asks a 5-question quiz about your dog (breed, age, health goals), then delivers a personalised meal plan as the lead magnet. The lead magnet IS the product recommendation. Every subscriber tells the brand exactly what to send them next.</li>
+      <li><strong>Cowboy Bikes</strong> -- Offers waitlist access to a VIP community for a test ride. The email capture happens at the bottom of the funnel -- people who are already close to buying. These subscribers convert at 15x the rate of a generic newsletter signup.</li>
+      <li><strong>Lodestone Candles</strong> -- Reframes the newsletter as a "free membership" with promotions and exclusive products non-members cannot access. The framing changes the psychology: you are joining something, not just handing over an email.</li>
+      <li><strong>Care/of Vitamins</strong> -- Quiz captures your health profile, then the email sequence sends you personalised product recommendations based on your answers. Segmentation happens at the point of capture -- no manual tagging needed after the fact.</li>
+    </ul>
+  </div>
+
+  <!-- The rare recommendation -->
+  <h3 style="margin-top: 64px; margin-bottom: 8px;">The Ript-Specific Recommendation</h3>
+  <p style="margin-bottom: 40px; max-width: 820px;">Two lead magnets, each designed around a mechanic that is unique to how Ript operates. Neither of them is a discount. Both turn existing site behaviour into email capture without changing the brand's identity or positioning.</p>
+
+  <div class="grid-2" style="margin-bottom: 32px;">
+
+    <div class="card">
+      <h4>Primary -- Most Rare</h4>
+      <p style="font-family: var(--mono); font-size: 18px; font-weight: 300; color: var(--fg); margin-bottom: 16px; max-width: none;">The Graveyard Revival Vote</p>
+      <p>On every sold-out design in the Graveyard, add a single CTA: <em>"Cast your revival vote. If this design gets enough votes, we bring it back for 24 hours."</em> Email required to vote.</p>
+      <br>
+      <p>When a design hits the vote threshold (e.g. 75 votes), it triggers a "You asked. It's back." email to every subscriber who voted for that specific design -- with a countdown timer for the 24-hour revival window.</p>
+      <br>
+      <ul class="clean">
+        <li><strong>Why it is rare:</strong> No graphic tee brand in the market does this. The closest analogue is Cowboy's waitlist, but the Revival Vote is demand-sensing, not just queue-building. It tells Ript exactly which archived designs have commercial demand before they spend money reprinting.</li>
+        <li><strong>Why it converts:</strong> The subscriber is captured at maximum purchase intent -- they are already on a page for a design they want but cannot buy. The email sequence re-engages the highest-intent segment in the entire database.</li>
+        <li><strong>The FAQ already teases this:</strong> Ript's FAQ literally says "sometimes on a full moon, strange rumblings have been heard stirring within the cemetery gates." The brand already hints at revivals. This turns that hint into a scalable, data-driven system.</li>
+        <li><strong>Bonus data layer:</strong> Every vote is a demand signal. After 90 days, Ript has a ranked list of which archived designs have the most commercial interest -- a product roadmap generated entirely by customers, at zero cost.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>Secondary -- Highest Conversion Rate</h4>
+      <p style="font-family: var(--mono); font-size: 18px; font-weight: 300; color: var(--fg); margin-bottom: 16px; max-width: none;">The Fandom DNA Quiz</p>
+      <p><em>"What Pop Culture Era Do You Belong To?"</em> -- A 5-question quiz that identifies your fandom identity based on taste in music, cartoons, games, film, and decade. Results in a label like "90s Cartoon Network Kid" or "80s Arcade Purist."</p>
+      <br>
+      <p>Email capture happens before the result is revealed. Follow-up email: "Your Fandom DNA matched 7 designs dropping this week. Here they are -- before they go."</p>
+      <br>
+      <ul class="clean">
+        <li><strong>Why it works:</strong> Quizzes convert at 40.1% of people who start them -- roughly 6x the average ecommerce popup. The identity result is inherently shareable on social, which extends reach without paid spend.</li>
+        <li><strong>Ript already has the infrastructure:</strong> "Shop By Fandom" and "Shop By Era" are already in the navigation. The quiz is a conversion layer placed in front of those pages -- not a new feature, just a smarter entry point.</li>
+        <li><strong>Segmentation at capture:</strong> Every subscriber tags themselves at signup. An anime fan never receives a wrestling drop first. A subscriber who identifies as "80s Metal" never gets a 90s cartoon email. The sequence is personalised from day one without any manual list management.</li>
+        <li><strong>LTV impact:</strong> Quiz-captured subscribers have 23% higher LTV than discount-captured subscribers (GetResponse 2025 study) because they signed up for identity and community, not a coupon. They open more emails and buy more often.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Placement strategy -->
+  <h3 style="margin-bottom: 8px;">Where to Place Each Lead Magnet</h3>
+  <p style="margin-bottom: 32px; max-width: 820px;">Placement determines conversion rate as much as the offer itself. Match the lead magnet to the visitor's intent at that specific moment on the site.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Page / Trigger</th>
+        <th>Lead Magnet</th>
+        <th>Why It Fits</th>
+        <th>Timing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Homepage</td>
+        <td>Fandom DNA Quiz</td>
+        <td>Visitor is brand-new. Quiz tells Ript who they are before Ript knows anything about them. Sets up a personalised first email.</td>
+        <td>35-40% scroll depth or 20-second dwell time</td>
+      </tr>
+      <tr>
+        <td>Graveyard design pages</td>
+        <td>Graveyard Revival Vote</td>
+        <td>Visitor is on a sold-out page because they specifically want that design. Highest purchase intent on the entire site.</td>
+        <td>On-page, no trigger delay -- the CTA should be visible without scrolling</td>
+      </tr>
+      <tr>
+        <td>Theme collection pages (Anime, Wrestling, etc.)</td>
+        <td>Fandom DNA Quiz (shortened, 2-question version)</td>
+        <td>Visitor has self-selected a fandom. A 2-question version ("Which era? Which style?") captures more granular data without friction.</td>
+        <td>50% scroll depth, after browsing at least 6 products</td>
+      </tr>
+      <tr>
+        <td>Exit intent (any page)</td>
+        <td>Fandom DNA Quiz with urgency layer</td>
+        <td>Last chance before they leave. Add: "Before you go -- today's drop ends in [countdown]. Find designs matched to your fandom in 30 seconds."</td>
+        <td>Exit intent trigger only -- never on checkout pages</td>
+      </tr>
+      <tr>
+        <td>Post-purchase confirmation page</td>
+        <td>Graveyard Revival Vote (secondary offer)</td>
+        <td>Buyer is at peak brand trust. Show them 3 sold-out designs they might have missed. "Cast a revival vote -- we'll tell you if it comes back."</td>
+        <td>Static block on confirmation page, no popup</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 48px;">
+    <span class="tag">What Not to Do</span>
+    <p>Do not add a discount popup. Ript's brand identity is built on <em>"you either caught it or you didn't."</em> A 10% off popup directly contradicts that positioning -- it signals that the price is negotiable, which erodes the FOMO mechanics the entire daily drop model depends on. The Fandom DNA Quiz and the Graveyard Revival Vote both capture emails without touching price. That is the only kind of lead magnet that fits this brand.</p>
+  </div>
+</section>
+
+<footer>
+  <div style="margin-bottom: 24px;">
+    <div style="font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 1.4px; color: var(--fg-50); margin-bottom: 12px;">Research Source</div>
+    <a href="https://notebooklm.google.com/notebook/0c5386a1-cbb9-4657-be48-35a8efdccf58" target="_blank" style="font-family: var(--mono); font-size: 13px; color: var(--fg-70); border-bottom: 1px solid var(--border); padding-bottom: 2px;">NotebookLM &rarr; Ript Apparel AI SEO Analysis (32 sources)</a>
+  </div>
+  <div class="footer-bottom">
+    <img src="https://goalsandbeyond.co/wp-content/uploads/2025/04/logo-with-left-align-1.png" alt="Goals & Beyond" />
+    <span>Confidential &mdash; Goals &amp; Beyond &copy; 2026</span>
+  </div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
