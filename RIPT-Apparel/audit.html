@@ -344,8 +344,9 @@
     <a href="#overview" class="active">01 Overview</a>
     <a href="#findings">02 Findings</a>
     <a href="#quickwins">03 Quick Wins</a>
-    <a href="#roadmap">04 Roadmap</a>
-    <a href="#next">05 Next Step</a>
+    <a href="#safety">04 Working Safely</a>
+    <a href="#roadmap">05 Timeline</a>
+    <a href="#next">06 Next Step</a>
   </div>
   <div class="nav-meta">
     <span class="nav-tag">April 2026</span>
@@ -618,32 +619,135 @@
   </div>
 </section>
 
+<section id="safety">
+  <div class="section-eyebrow">Working safely</div>
+  <h2>How we change a live store without breaking it</h2>
+  <p class="lede">RIPT is a live store with real orders every hour. A broken deploy loses revenue the moment it ships. This section is the process we follow on every change, every time. No exceptions.</p>
+
+  <div class="grid-3" style="margin-bottom: 48px;">
+    <div class="card">
+      <h4>Staging first</h4>
+      <p>Every change lands on a private copy of the site before it reaches customers. Staging is an exact clone of riptapparel.com living on the same Hostinger account. Customers never see a change until it has passed testing on staging.</p>
+    </div>
+    <div class="card">
+      <h4>Backup before everything</h4>
+      <p>Full file and database backup taken automatically before every change, stored off the server. If anything behaves unexpectedly on live, we restore in under five minutes. The live site is always one click from the state before the change.</p>
+    </div>
+    <div class="card">
+      <h4>One change at a time</h4>
+      <p>No batching. One fix, tested on staging, pushed to live, observed for 24 hours, then the next. This way we always know exactly what caused any change in behavior and can roll back a single step rather than everything.</p>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom: 24px;">Ten-point testing checklist</h3>
+  <p class="lede" style="margin-bottom: 24px; font-size: 16px;">Before any change is pushed from staging to live, we run through this list. If any item fails, the change goes back and does not ship.</p>
+
+  <ul class="clean">
+    <li><strong>Homepage</strong> loads correctly on desktop and mobile</li>
+    <li><strong>Category page</strong> (e.g. T-Shirts, Daily Deals) loads with the product grid intact</li>
+    <li><strong>Product page</strong> loads, variations (size and color) switch correctly, add to cart works</li>
+    <li><strong>Cart page</strong> updates quantities, applies coupon codes, calculates shipping correctly</li>
+    <li><strong>Checkout</strong> completes with a test card in WooPayments test mode</li>
+    <li><strong>Order confirmation email</strong> arrives and renders correctly</li>
+    <li><strong>Customer account</strong> login, order history, and artist dashboard all load</li>
+    <li><strong>PageSpeed score</strong> matches or beats the previous baseline on the same four pages</li>
+    <li><strong>WooCommerce error log</strong> shows no new errors for 24 hours after the change</li>
+    <li><strong>Revenue tracking</strong> continues unbroken in GA4 and the chosen email platform</li>
+  </ul>
+
+  <div class="callout" style="margin-top: 48px;">
+    <span class="tag">Rollback policy</span>
+    <p>If any test fails on live after a push, we roll back immediately using the pre-change backup. Full rollback takes under five minutes. The next attempt at that fix is made fresh on staging from the restored state. Nothing is ever "patched in place" on the live site.</p>
+  </div>
+
+  <div class="callout" style="margin-top: 24px;">
+    <span class="tag">Responsibility split</span>
+    <p>Goals &amp; Beyond writes the code and executes the technical work. Jamal (or the RIPT dev) handles the in-admin click-through fixes and staging deployment approval. RIPT signs off on each phase before it moves to live. Non-technical stakeholders never need to execute a fix, only approve one.</p>
+  </div>
+</section>
+
 <section id="roadmap">
-  <div class="section-eyebrow">Roadmap</div>
-  <h2>How we fix the rest, without breaking the store</h2>
-  <p class="lede">The bigger items (media library cleanup, user meta bloat, child theme, plugin consolidation) all require a staging environment. Staging is a private copy of the live site where we can test every change before it reaches customers. Hostinger supports this natively on their Business plan and above.</p>
+  <div class="section-eyebrow">Timeline</div>
+  <h2>Week by week from today to a measurably better store</h2>
+  <p class="lede">Realistic schedule assuming access and approvals land on time. Each week ends with a status note to RIPT so you always know what shipped and what is queued next.</p>
 
   <div class="sequence">
     <div class="step">
       <div class="step-num">Phase 1</div>
       <div class="step-title">Quick wins</div>
-      <div class="step-desc">The 8 zero-risk fixes above. Done on the live site with no staging required. Target completion: this week.</div>
+      <div class="step-desc">The 8 zero-risk fixes. Done on the live site with no staging required. Week 1.</div>
     </div>
     <div class="step">
       <div class="step-num">Phase 2</div>
       <div class="step-title">Stand up staging</div>
-      <div class="step-desc">Create the Hostinger staging clone. From here, every major change gets tested on staging first, validated, then pushed to live. Target: within 3 days of Phase 1 completing.</div>
+      <div class="step-desc">Create Hostinger staging clone. Every future change tested here first. End of Week 1.</div>
     </div>
     <div class="step">
       <div class="step-num">Phase 3</div>
       <div class="step-title">Deep clean</div>
-      <div class="step-desc">Media library audit and offload to a CDN, usermeta investigation and cleanup, plugin consolidation, child theme creation, template override migration. Target: 2 to 3 weeks on staging.</div>
+      <div class="step-desc">Media library, usermeta, plugin consolidation, child theme, template migration. Weeks 2 and 3.</div>
     </div>
     <div class="step">
       <div class="step-num">Phase 4</div>
-      <div class="step-title">Performance lift</div>
-      <div class="step-desc">LiteSpeed Cache tuned properly, image optimisation and WebP, lazy loading on product archives, autoload audit on wp_options. Measured on the same 4 pages before and after.</div>
+      <div class="step-title">Performance + CRO</div>
+      <div class="step-desc">Cache tuning, CDN, image optimisation, then product page and homepage redesign. Weeks 4 to 7.</div>
     </div>
+  </div>
+
+  <h3 style="margin-top: 64px; margin-bottom: 24px;">Week-by-week plan with responsibilities</h3>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width: 12%;">Week</th>
+        <th style="width: 24%;">Focus</th>
+        <th style="width: 32%;">Goals &amp; Beyond</th>
+        <th style="width: 32%;">RIPT Apparel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Week 0</strong><br><span style="color: var(--fg-50); font-size: 12px;">This week</span></td>
+        <td>Approvals &amp; access</td>
+        <td>Prepare child theme files, SQL cleanup scripts, and first-fix playbook.</td>
+        <td>Approve the Quick Wins list. Share Hostinger panel login. Confirm Klaviyo vs Omnisend decision. Confirm Elementor Pro renewal.</td>
+      </tr>
+      <tr>
+        <td><strong>Week 1</strong></td>
+        <td>Quick wins + staging</td>
+        <td>Execute the 8 zero-risk fixes on live. Create Hostinger staging environment. Take full backup and document restore procedure.</td>
+        <td>Observe. Flag anything unusual on the live site. Test staging access once created.</td>
+      </tr>
+      <tr>
+        <td><strong>Week 2 &amp; 3</strong></td>
+        <td>Deep clean on staging</td>
+        <td>Ship child theme. Run media library cleanup. Fix wp_usermeta bloat. Consolidate duplicate plugins. Update order email templates. Fix cart page conflict.</td>
+        <td>Test staging at the end of each fix. Sign off before any fix moves to live.</td>
+      </tr>
+      <tr>
+        <td><strong>Week 4</strong></td>
+        <td>Performance push</td>
+        <td>Tune LiteSpeed Cache. Set up CDN for images. Convert images to WebP. Audit wp_options autoload. Re-run PageSpeed benchmarks on the same four pages.</td>
+        <td>Test staging. Approve the push from staging to live.</td>
+      </tr>
+      <tr>
+        <td><strong>Week 5 &amp; 6</strong></td>
+        <td>Product + homepage redesign</td>
+        <td>Figma or Google Stitch mockups based on Threadless and TeePublic patterns plus RIPT session data. Code the approved design into the child theme on staging.</td>
+        <td>Approve designs. Test the redesign on staging. Approve the push to live.</td>
+      </tr>
+      <tr>
+        <td><strong>Week 7</strong></td>
+        <td>Go live + monitor</td>
+        <td>Push redesign from staging to live. Monitor WooCommerce logs, GA4, and revenue for 7 days. Deliver a final report with before and after numbers.</td>
+        <td>Watch revenue and customer feedback. Flag anything unusual. Sign off on engagement completion.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top: 48px;">
+    <span class="tag">Expected outcome by week 7</span>
+    <p>PageSpeed mobile score of 65 to 85 from a starting point of roughly 20 to 40. Database size under 2 GB from 7.2 GB today. Storage overload resolved. A measured conversion rate baseline established on the redesigned product and homepage, with the first CR lift signal visible within 7 to 14 days of the redesign going live.</p>
   </div>
 </section>
 
