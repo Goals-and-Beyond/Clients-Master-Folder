@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="https://goalsandbeyond.co/wp-content/uploads/2025/04/logo-with-left-align-1.png">
+<title>Was-Home | Comprehensive Audit Report</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1e1e2e;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 40px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h1.main-heading {
+    background: #2d8a4e;
+    color: #fff;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 28px;
+    margin: 50px 0 20px 0;
+    font-weight: 700;
+  }
+  h3.section-banner {
+    background: #1a6fc4;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-size: 20px;
+    margin: 30px 0 0 0;
+    font-weight: 600;
+  }
+  .line-brick {
+    border-bottom: 3px solid #3a3a5c;
+    margin: 10px 0 18px 0;
+  }
+  h3.date-heading {
+    background: #e8c840;
+    color: #1a1a2e;
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 3px;
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+    font-weight: 600;
+  }
+  .screenshot {
+    max-width: 100%;
+    border-radius: 6px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .screenshot:hover { opacity: 0.85; }
+  .placeholder {
+    background: #2a2a3e;
+    border: 1px dashed #555;
+    border-radius: 6px;
+    padding: 25px;
+    margin: 8px 0 16px 0;
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+  }
+  h2.initiative-heading {
+    color: #e0e0e0;
+    font-size: 24px;
+    margin: 50px 0 10px 0;
+    border-bottom: 2px solid #555;
+    padding-bottom: 6px;
+  }
+  .intro-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #d0d0d0;
+    margin: 10px 0;
+  }
+  .intro-text p {
+    margin: 16px 0;
+  }
+  .intro-text strong {
+    color: #fff;
+  }
+  .intro-text ul {
+    margin: 12px 0 12px 24px;
+  }
+  .intro-text li {
+    margin: 6px 0;
+  }
+  .flow-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px 0;
+    font-size: 15px;
+  }
+  .flow-table th {
+    background: #2a2a3e;
+    color: #e8c840;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid #444;
+  }
+  .flow-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #333;
+    color: #d0d0d0;
+  }
+  .flow-table tr:hover td {
+    background: #2a2a3e;
+  }
+  .revenue-trend {
+    display: flex;
+    gap: 30px;
+    margin: 16px 0;
+    justify-content: center;
+  }
+  .trend-item {
+    text-align: center;
+    padding: 14px 24px;
+    background: #2a2a3e;
+    border-radius: 8px;
+    border: 1px solid #3a3a5c;
+  }
+  .trend-month {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .trend-value {
+    color: #4ade80;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .signoff {
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ INTRODUCTION ============ -->
+<h1 class="main-heading">Introduction</h1>
+
+<div class="intro-text">
+  <p>We onboarded Was-Home on January 6th.</p>
+
+  <p>When we came in, there was nothing. No sign-up form. No campaigns. No email flows. The entire email list had just 733 subscribers.</p>
+</div>
+
+<img class="screenshot" src="intro-subscribers.png">
+
+<div class="intro-text">
+  <p>We built everything from scratch.</p>
+
+  <p>The first sign-up form went live on January 16th. So from the point where we actually started capturing new subscribers, it hasn't even been 3 months yet.</p>
+
+  <p>Here's when each flow went live:</p>
+</div>
+
+<table class="flow-table">
+  <tr><th>Email Flow</th><th>Live Date</th></tr>
+  <tr><td>Welcome Flow</td><td>13 Jan</td></tr>
+  <tr><td>Checkout Flow</td><td>23 Jan</td></tr>
+  <tr><td>Browse Flow</td><td>23 Jan</td></tr>
+  <tr><td>Site Abandonment Flow</td><td>27 Jan</td></tr>
+  <tr><td>Cart Flow</td><td>10 Feb</td></tr>
+  <tr><td>Post Purchase</td><td>26 Feb</td></tr>
+  <tr><td>1st Time Customer</td><td>24 Feb</td></tr>
+  <tr><td>2nd Time Customer</td><td>26 Feb</td></tr>
+  <tr><td>Review Request</td><td>26 Feb</td></tr>
+  <tr><td>Sunset Flow</td><td>10 Feb</td></tr>
+</table>
+
+<div class="intro-text">
+  <p>The key revenue-driving flows (Checkout, Browse, Cart) didn't go live until January 23rd and later. The second batch of flows were live by late February.</p>
+
+  <p>Also, we can't judge a campaign's performance on the day it's sent. Every campaign keeps generating revenue over the following days as people open, click, and purchase.</p>
+
+  <p>Email marketing doesn't work like paid ads, where you may see results the next day. It takes time to build a list, warm up the audience, and let the automations do their job. The minimum is 3 months before you start seeing real traction, and we are already getting traction after these three months of working together. You will see the improvements below.</p>
+
+  <p>The percentage of revenue from email has been climbing every month:</p>
+</div>
+
+<div class="revenue-trend">
+  <div class="trend-item">
+    <div class="trend-month">Jan</div>
+    <div class="trend-value">2.3%</div>
+  </div>
+  <div class="trend-item">
+    <div class="trend-month">Feb</div>
+    <div class="trend-value">6.3%</div>
+  </div>
+  <div class="trend-item">
+    <div class="trend-month">Mar</div>
+    <div class="trend-value">7.8%</div>
+  </div>
+</div>
+
+<!-- ============ OVERALL PERFORMANCE ============ -->
+<h1 class="main-heading">Overall Performance</h1>
+
+<!-- Store Performance -->
+<h3 class="section-banner">Store Performance</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="store-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="store-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="store-mar-apr.png">
+
+<!-- Marketing Activity Performance -->
+<h3 class="section-banner">Marketing Activity Performance</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="mkt-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="mkt-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="mkt-mar-apr.png">
+
+<!-- Channel Performance -->
+<h3 class="section-banner">Channel Performance</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="chan-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="chan-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="chan-mar-apr.png">
+
+<!-- ============ SIGN-UP FORMS PERFORMANCE ============ -->
+<h1 class="main-heading">Sign-Up Forms Performance</h1>
+<div class="line-brick"></div>
+<h3 class="date-heading">17 Jan - 6 Feb</h3>
+<img class="screenshot" src="signup-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="signup-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="signup-mar-apr.png">
+
+<!-- ============ CAMPAIGN PERFORMANCE ============ -->
+<h1 class="main-heading">Campaign Performance</h1>
+
+<!-- Sales -->
+<h3 class="section-banner">Sales</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="camp-sales-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="camp-sales-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="camp-sales-mar-apr.png">
+
+<!-- Engagement -->
+<h3 class="section-banner">Engagement</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="camp-eng-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="camp-eng-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="camp-eng-mar-apr.png">
+
+<!-- Deliverability -->
+<h3 class="section-banner">Deliverability</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="camp-del-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="camp-del-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="camp-del-mar-apr.png">
+
+<!-- Campaigns -->
+<h3 class="section-banner">Campaigns</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="camp-list-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="camp-list-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="camp-list-mar-apr.png">
+
+<!-- ============ FLOWS PERFORMANCE ============ -->
+<h1 class="main-heading">Flows Performance</h1>
+
+<!-- Sales -->
+<h3 class="section-banner">Sales</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="flow-sales-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="flow-sales-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="flow-sales-mar-apr.png">
+
+<!-- Engagement -->
+<h3 class="section-banner">Engagement</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="flow-eng-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="flow-eng-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="flow-eng-mar-apr.png">
+
+<!-- Deliverability -->
+<h3 class="section-banner">Deliverability</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="flow-del-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="flow-del-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="flow-del-mar-apr.png">
+
+<!-- Flows Performance (sub) -->
+<h3 class="section-banner">Flows Performance</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">6 Jan - 6 Feb</h3>
+<img class="screenshot" src="flow-list-jan-feb.png">
+<h3 class="date-heading">6 Feb - 6 March</h3>
+<img class="screenshot" src="flow-list-feb-mar.png">
+<h3 class="date-heading">6 March - 6 April</h3>
+<img class="screenshot" src="flow-list-mar-apr.png">
+
+<!-- ============ INITIATIVES ============ -->
+<h1 class="main-heading">Initiatives</h1>
+
+<div class="intro-text">
+  <p>Here's what we're actively doing to push performance further:</p>
+
+  <p><strong>Weekly Tracking:</strong> We track everything weekly through a Unified Dashboard so nothing slips through the cracks.</p>
+
+  <p><strong>Continuous AB Testing:</strong> We're testing everything. Sign-up forms, campaigns, flows. We are not being static. We are optimizing based on the data.</p>
+
+  <p><strong>Alia Sign-Up Form:</strong> We introduced a new sign-up form to increase the sign-up rate. More subscribers means more people receiving campaigns, which means more revenue.</p>
+</div>
+
+<h3 class="section-banner">Increased Campaign Frequency</h3>
+<div class="line-brick"></div>
+<h3 class="date-heading">9 March - 15 March (2 Campaigns)</h3>
+<img class="screenshot" src="init-9-15mar.png">
+<h3 class="date-heading">16 March - 22 March (2 Campaigns)</h3>
+<img class="screenshot" src="init-16-22mar.png">
+<h3 class="date-heading">23 March - 29 March (3 Campaigns)</h3>
+<img class="screenshot" src="init-23-29mar.png">
+<h3 class="date-heading">30 March - 5 April (4 Campaigns)</h3>
+<img class="screenshot" src="init-30mar-5apr.png">
+<h3 class="date-heading">6 April - 12 April (4 Campaigns)</h3>
+<img class="screenshot" src="init-6-12apr.png">
+
+<!-- ============ NEXT STEPS ============ -->
+<h1 class="main-heading">Next Steps</h1>
+
+<div class="intro-text">
+  <p>Let's set the expectations properly.</p>
+
+  <p>If the goal is 15-30% of revenue from emails, we will get there. But it takes time, especially when we started with a list of 733 and built everything from zero.</p>
+
+  <p>Please let me know if there are any other specific concerns about the campaigns or the flows. Happy to go through anything in detail.</p>
+
+  <p>We can also hop on a call to discuss this.</p>
+</div>
+
+<p class="signoff">Haseeb<br><span style="font-size: 14px; color: #999; font-weight: 400;">Goals and Beyond</span></p>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt="Full view">
+</div>
+<script>
+document.querySelectorAll('.screenshot').forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+});
+</script>
+</body>
+</html>
