@@ -344,8 +344,9 @@
     <a href="#overview" class="active">01 Overview</a>
     <a href="#findings">02 Findings</a>
     <a href="#quickwins">03 Quick Wins</a>
-    <a href="#roadmap">04 Timeline</a>
-    <a href="#next">05 Next Step</a>
+    <a href="#safe-deploy">04 Safe Deployment</a>
+    <a href="#roadmap">05 Timeline</a>
+    <a href="#next">06 Next Step</a>
   </div>
   <div class="nav-meta">
     <span class="nav-tag">April 2026</span>
@@ -615,6 +616,40 @@
   <div class="callout" style="margin-top: 48px;">
     <span class="tag">Expected result</span>
     <p>Doing all eight of the above should reduce the database by roughly 800 MB to 1 GB, remove duplicate tracking scripts from every page, and bring admin speed back to normal. None of these changes affect product pages, the checkout, customer accounts, or existing orders.</p>
+  </div>
+</section>
+
+<section id="safe-deploy">
+  <div class="section-eyebrow">Safe deployment</div>
+  <h2>How to apply these fixes without breaking the live site</h2>
+  <p class="lede">riptapparel.com takes real orders every day. A change made directly on the live site can break checkout, lose revenue, or corrupt data. The pattern below is the standard way to avoid that. Every fix in this audit beyond the Quick Wins should follow it.</p>
+
+  <div class="sequence">
+    <div class="step">
+      <div class="step-num">Step 01</div>
+      <div class="step-title">Clone the site to staging</div>
+      <div class="step-desc">Create a private copy of riptapparel.com using Hostinger's built-in 1-click staging (available on Business plan and above). If staging is not included, clone the site to a separate subdomain using a migration plugin like Duplicator or All-in-One WP Migration. Staging has the same data, plugins, and theme as live, but no customers see it.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 02</div>
+      <div class="step-title">Back up before every change</div>
+      <div class="step-desc">Take a full file and database backup before touching anything, on staging or live. Store it off the server (UpdraftPlus, BlogVault, or host-native backup to an external location). If a change fails, a one-click restore returns the site to its previous state in under five minutes.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 03</div>
+      <div class="step-title">Apply the change on staging and test</div>
+      <div class="step-desc">Make the change on staging only. Walk through the testing checklist below. If any test fails, investigate on staging and retry. The live site is never touched until staging passes every test.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Step 04</div>
+      <div class="step-title">Push to live and monitor for 24 hours</div>
+      <div class="step-desc">Once staging is verified, push the change to live using the host's push-to-live tool or a migration plugin. Monitor the WooCommerce error log, GA4 revenue, and customer support channels for 24 hours before making the next change.</div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 48px;">
+    <span class="tag">What to test after every change</span>
+    <p>Homepage loads correctly. Category and product pages load. Add to cart works. Cart calculates totals, coupons, and shipping correctly. Checkout completes with a test card in WooPayments test mode. Order confirmation email arrives. Customer login and account pages load. No new entries in the WooCommerce error log.</p>
   </div>
 </section>
 
